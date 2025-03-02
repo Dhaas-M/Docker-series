@@ -1,0 +1,22 @@
+def image
+
+pipeline {
+    agent any 
+    stages {
+        stage('build') {
+            steps {
+                script {
+                    image = docker.build("dhaasarathy/node:v1", "--pull -f Dockerfile")
+                }
+            }
+        }
+        stage('test') {
+            steps {
+                script {
+                    container = image.run()
+                    constainer.stop()
+                }
+            }
+        }
+    }
+}
