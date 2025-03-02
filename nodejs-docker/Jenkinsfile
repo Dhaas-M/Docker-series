@@ -6,7 +6,7 @@ pipeline {
         stage('build') {
             steps {
                 script {
-                    image = docker.build("dhaasarathy/node:v1", "-f nodejs-docker/Dockerfile")
+                    image = docker.build("dhaasarathy/node:v1", ".")
                 }
             }
         }
