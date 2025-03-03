@@ -5,10 +5,13 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                echo "running in $WORKSPACE"
+                dir("$WORKSPACE/nodejs-docker") {
                 script {
-                    image = docker.build("dhaasarathy/node:v1", ".")
+                    image = docker.build("dhaasarathy/node:v1")
                 }
             }
+        }
         }
         stage('test') {
             steps {
