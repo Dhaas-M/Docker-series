@@ -21,5 +21,13 @@ pipeline {
                 }
             }
         }
+        stage('deploy') {
+            steps{
+                echo "image pushed to hub"
+                script {
+                    image.push()
+                }
+            }
+        }
     }
 }
