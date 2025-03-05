@@ -25,7 +25,9 @@ pipeline {
             steps{
                 echo "image pushed to hub"
                 script {
-                    image.push()
+                    docker.withRegistry('','Docker') {
+                        image.push()
+                    }
                 }
             }
         }
