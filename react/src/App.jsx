@@ -6,28 +6,25 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
 
+  const videos = [
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/caDthE5Skqw?si=jgk3e-wOSbYZxmU7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>,
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/PYHYK4D5ex8?si=jmzuXoVW9poW-8qm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>,
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/TgI27FeJImY?si=TNirCohJOHsn9z4u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>,
+  ]
+
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='grid'>
+        {videos.map(video => {
+          return <div>{video}</div>
+        })}
+        <div className="txt">
+        Made by Dhaas with❤️
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <br />
+      <br />
+      <br />
     </>
   )
 }
