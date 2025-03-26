@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  frontend:
+    build: ./react
+    # image: react:v1
+    ports:
+      - "3000:5173"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  backend:
+    build: ./springboot
+    # image: spring:v1
+    ports:
+      - "3001:8070"
+    depends_on:
+      - node-service
+    networks:
+      - app-network
+
+  node-service:
+    build: ./nodejs-docker
+    # image: node:v1
+    ports:
+      - "3002:3000"
+    networks:
+      - app-network
+    volumes:
+      - ./nodejs-docker:/app
+
+networks:
+  app-network:
+    driver: bridge
